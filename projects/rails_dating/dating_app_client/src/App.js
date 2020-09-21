@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Daters from "./components/Daters";
+import Form from "./components/Form";
 import "./App.css";
 
 function App() {
     const [daters, setDaters] = useState([]);
     const [formInputs, updateFormInputs] = useState({
-        author: "",
-        content: "",
-        title: "",
+        name: "",
+        starsign: "",
+        age: "",
+        img: "",
     });
 
     const handleChange = (event) => {
@@ -30,9 +32,10 @@ function App() {
             });
             const data = await response.json();
             updateFormInputs({
-                author: "",
-                content: "",
-                title: "",
+                name: "",
+                starsign: "",
+                age: "",
+                img: "",
             });
             setDaters([data, ...daters]);
         } catch (error) {
@@ -60,6 +63,11 @@ function App() {
                 <h1>React on Rails Dating App</h1>
             </header>
             <Daters daters={daters} />
+            <Form
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                formInputs={formInputs}
+            />
             <footer>
                 <h2>Footer</h2>
             </footer>

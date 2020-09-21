@@ -8,11 +8,12 @@ export default function Dater(props) {
                     .slice(0, props.daters.length / 2)
                     .map((dater, i) => {
                         return (
-                            <ul>
+                            <ul key={`${dater.name}wrap`}>
                                 <li key={i + dater.img}>
                                     <img src={dater.img} alt={dater.name} />
                                 </li>
                                 <li key={i + dater.name}>{dater.name}</li>
+                                <li key={i + dater.age}>{dater.age}</li>
                                 <li key={i + dater.starsign}>
                                     {dater.starsign}
                                 </li>
@@ -29,11 +30,12 @@ export default function Dater(props) {
                         .slice(props.daters.length / 2, props.daters.length)
                         .map((dater, i) => {
                             return (
-                                <ul>
+                                <ul key={`${dater.name}wrap`}>
                                     <li key={i + dater.img}>
                                         <img src={dater.img} alt={dater.name} />
                                     </li>
                                     <li key={i + dater.name}>{dater.name}</li>
+                                    <li key={i + dater.age}>{dater.age}</li>
                                     <li key={i + dater.starsign}>
                                         {dater.starsign}
                                     </li>
